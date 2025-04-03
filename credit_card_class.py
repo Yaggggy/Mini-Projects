@@ -111,6 +111,43 @@ def main():
         print("9. Check if Card is Expired")
         print("0. Exit")
 
+        try:
+            choice = int(input("Enter your choice: "))
+            
+            if choice == 1:
+                print(card)
+            elif choice == 2:
+                amount = float(input("Enter the purchase amount: "))
+                card.make_purchase(amount)
+            elif choice == 3:
+                amount = float(input("Enter the payment amount: "))
+                card.make_payment(amount)
+            elif choice == 4:
+                card.check_balance()
+            elif choice == 5:
+                card.get_available_credit()
+            elif choice == 6:
+                interest_rate = float(input("Enter the interest rate: "))
+                card.apply_interest(interest_rate)
+            elif choice == 7:
+                amount = float(input("Enter the amount to redeem: "))
+                card.redeem_rewards(amount)
+            elif choice == 8:
+                card.show_premium_features()
+            elif choice == 9:
+                current_date = input("Enter the current date (MM/YY): ")
+                card.is_expired(current_date)
+            elif choice == 0:
+                print("Exiting the system.")
+                break
+            else:
+                print("Invalid choice. Please try again.")
+        except ValueError as e:
+            print(f"Error: {e}")
+        except Exception as e:
+            print(f"Unexpected error: {e}")
+
+
 
 if __name__ == "__main__":
     main()
